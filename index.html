@@ -1,0 +1,1038 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>USICT, GGSIPU – Student Dashboard & Campus Map Suite</title>
+  <meta name="description" content="Official Student Portal & Interactive Campus Map for University School of Information & Communication Technology, Guru Gobind Singh Indraprastha University (GGSIPU).">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ==========================================================
+       APP HEADER
+       ========================================================== -->
+  <header class="app-header">
+    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Navigation Menu">☰</button>
+
+    <div class="brand-section">
+      <div class="logo-badge" title="GGSIPU Crest">🏛</div>
+      <div class="uni-info">
+        <b>गुरु गोबिंद सिंह इन्द्रप्रस्थ विश्वविद्यालय</b>
+        <span>Guru Gobind Singh Indraprastha University (GGSIPU)</span>
+      </div>
+      <div class="dept-divider">
+        <b>USICT</b>
+        <span>University School of Information & Communication Technology</span>
+      </div>
+    </div>
+
+    <nav class="top-nav">
+      <a class="active" data-target="tab-dashboard">🏠 Home</a>
+      <a data-target="tab-map">📍 Campus Map</a>
+      <a data-target="tab-syllabus">📖 Academics</a>
+      <a data-target="tab-notices">🔔 Notices</a>
+      <a data-target="tab-calendar">📅 Calendar</a>
+      <a data-target="tab-attendance">📊 Attendance</a>
+      <a data-target="tab-exams">🏆 Exams</a>
+      <a data-target="tab-support">🎧 Support</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="theme-toggle-btn" id="themeToggleBtn" title="Toggle Light/Dark Theme">🌙</button>
+      <button class="notif-bell-btn" onclick="openModal('noticesListModal')" title="View Notifications">
+        🔔<span class="notif-badge">3</span>
+      </button>
+      <div class="avatar-badge" id="headerAvatarBtn" title="Student Profile">ST</div>
+    </div>
+  </header>
+
+  <!-- ==========================================================
+       MAIN APP CONTAINER (SIDEBAR + MAIN CONTENT)
+       ========================================================== -->
+  <div class="app-container">
+
+    <!-- SIDEBAR -->
+    <aside class="app-sidebar" id="appSidebar">
+      <div class="student-profile-card">
+        <div class="student-avatar">👤</div>
+        <span class="student-name">Student</span>
+        <span class="student-program">B.Tech CSE (AI)</span>
+        <span class="student-roll">Roll No: 2423010 • 3rd Sem</span>
+      </div>
+
+      <nav class="sidebar-nav">
+        <button class="sidebar-btn active" data-target="tab-dashboard">
+          <span class="btn-icon">🏠</span>
+          <span>Dashboard</span>
+        </button>
+        <button class="sidebar-btn" data-target="tab-map">
+          <span class="btn-icon">📍</span>
+          <span>Campus Map</span>
+          <span class="sidebar-badge pulse">Map</span>
+        </button>
+        <button class="sidebar-btn" data-target="tab-syllabus">
+          <span class="btn-icon">📖</span>
+          <span>Syllabus & Scheme</span>
+        </button>
+        <button class="sidebar-btn" data-target="tab-notices">
+          <span class="btn-icon">🔔</span>
+          <span>Notices & Circulars</span>
+          <span class="sidebar-badge">5</span>
+        </button>
+        <button class="sidebar-btn" data-target="tab-calendar">
+          <span class="btn-icon">📅</span>
+          <span>Academic Calendar</span>
+        </button>
+        <button class="sidebar-btn" data-target="tab-attendance">
+          <span class="btn-icon">📊</span>
+          <span>Attendance (80% Rule)</span>
+          <span class="sidebar-badge">84.5%</span>
+        </button>
+        <button class="sidebar-btn" data-target="tab-exams">
+          <span class="btn-icon">🏆</span>
+          <span>Exams & Hall Ticket</span>
+        </button>
+        <button class="sidebar-btn" data-target="tab-support">
+          <span class="btn-icon">🎧</span>
+          <span>Student Support</span>
+        </button>
+        <button class="sidebar-btn" data-target="tab-downloads">
+          <span class="btn-icon">⬇</span>
+          <span>Downloads</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-motto">Learn • Innovate • Excel<br><small style="opacity:0.7;">NAAC 'A++' Accredited</small></div>
+    </aside>
+
+    <!-- MAIN VIEW CONTAINER -->
+    <main class="app-main">
+
+      <!-- ======================================================
+           TAB 1: DASHBOARD OVERVIEW (HOME)
+           ====================================================== -->
+      <section class="tab-view active" id="tab-dashboard">
+
+        <!-- HERO BANNER -->
+        <div class="hero-banner">
+          <div class="hero-text">
+            <h2>Welcome back, Student</h2>
+            <h1>USICT, GGSIPU</h1>
+            <p>Your Learning. Our Priority.</p>
+            <i class="accent-bar"></i>
+          </div>
+          <div class="hero-stats">
+            <div class="hero-stat-card">
+              <span class="stat-val">8.92</span>
+              <span class="stat-lbl">CGPA (Rank #4)</span>
+            </div>
+            <div class="hero-stat-card">
+              <span class="stat-val" style="color:#2ed573;">84.5%</span>
+              <span class="stat-lbl">Attendance (Safe)</span>
+            </div>
+            <div class="hero-stat-card">
+              <span class="stat-val">9</span>
+              <span class="stat-lbl">Registered Courses</span>
+            </div>
+            <div class="hero-stat-card">
+              <span class="stat-val" style="color:#f3c64a;">Nov 10</span>
+              <span class="stat-lbl">Fee Deadline</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- QUICK ACTION STRIP -->
+        <div class="action-buttons-strip">
+          <button class="action-btn" data-target="tab-map">
+            <span>📍 Explore Campus Map</span>
+            <span class="arrow">→</span>
+          </button>
+          <button class="action-btn" data-target="tab-syllabus">
+            <span>📘 View CSE (AI) Syllabus</span>
+            <span class="arrow">→</span>
+          </button>
+          <button class="action-btn" data-target="tab-attendance">
+            <span>📊 Check 80% Attendance</span>
+            <span class="arrow">→</span>
+          </button>
+          <button class="action-btn" data-target="tab-exams">
+            <span>🎟️ Download Hall Ticket</span>
+            <span class="arrow">→</span>
+          </button>
+        </div>
+
+        <!-- DASHBOARD 3-COLUMN GRID -->
+        <div class="dashboard-grid">
+
+          <!-- CARD 1: LATEST NOTICES -->
+          <section class="card">
+            <div class="card-header">
+              <h3>🔔 Latest Notices</h3>
+              <a class="card-action-link" data-target="tab-notices">View All (5) →</a>
+            </div>
+            <div class="notices-list" id="dashboardNoticesList">
+              <!-- Rendered via JS -->
+            </div>
+          </section>
+
+          <!-- CARD 2: ACADEMIC CALENDAR -->
+          <section class="card">
+            <div class="card-header">
+              <h3>🗓 Academic Calendar</h3>
+              <a class="card-action-link" data-target="tab-calendar">Full Schedule →</a>
+            </div>
+            <div class="timeline">
+              <div class="timeline-item past">
+                <span class="timeline-date">Oct 27 – Nov 02, 2026</span>
+                <span class="timeline-desc">Mid Semester Examinations (Completed)</span>
+              </div>
+              <div class="timeline-item urgent">
+                <span class="timeline-date" style="color:#ff4757;">Nov 10, 2026 (Tomorrow)</span>
+                <span class="timeline-desc">Odd Sem Fee Payment Deadline</span>
+              </div>
+              <div class="timeline-item">
+                <span class="timeline-date">Nov 20, 2026</span>
+                <span class="timeline-desc">End Sem Exam Form Submission (Without late fee)</span>
+              </div>
+              <div class="timeline-item">
+                <span class="timeline-date">Dec 01, 2026</span>
+                <span class="timeline-desc">Admit Cards Live on Student Portal</span>
+              </div>
+              <div class="timeline-item">
+                <span class="timeline-date">Dec 10 – Dec 24, 2026</span>
+                <span class="timeline-desc">End Semester Theory Examinations</span>
+              </div>
+            </div>
+          </section>
+
+          <!-- CARD 3: USICT AI ASSISTANT -->
+          <section class="card ai-card">
+            <h3>🤖 USICT AI Assistant</h3>
+            <p class="ai-subtitle">Ask anything about campus, rules, exams, syllabus…</p>
+            <div class="chat-log" id="aiChatLog" aria-live="polite">
+              <!-- Messages injected via JS -->
+            </div>
+            <div class="quick-chips">
+              <button class="chip-btn" data-q="Where is USICT Block E?">📍 Block E</button>
+              <button class="chip-btn" data-q="What is the Attendance Criteria?">📊 80% Rule</button>
+              <button class="chip-btn" data-q="When is the next exam?">📅 Exam Dates</button>
+              <button class="chip-btn" data-q="Show campus map">🗺️ Campus Map</button>
+            </div>
+            <form class="chat-input-form" id="aiChatForm">
+              <input type="text" id="aiChatInput" placeholder="Ask USICT assistant…" aria-label="Ask assistant" autocomplete="off">
+              <button type="submit" aria-label="Send query">➤</button>
+            </form>
+          </section>
+
+        </div>
+
+        <!-- DASHBOARD BOTTOM 2-COLUMN GRID -->
+        <div class="dashboard-bottom-grid">
+
+          <!-- CAMPUS MAP MINI WIDGET -->
+          <section class="card">
+            <div class="card-header">
+              <h3>📍 Interactive Campus Map Preview</h3>
+              <button class="card-action-link" data-target="tab-map">Open Full Map Suite →</button>
+            </div>
+            <div class="dashboard-map-preview" id="dashboardMapPreview" title="Click to open interactive map">
+              <img src="assets/campus-map.jpg" alt="GGSIPU Dwarka Campus Map">
+              <div class="map-preview-overlay">
+                <span class="map-preview-tag">🏛️ USICT located in Block E</span>
+                <div class="map-preview-footer">
+                  <div>
+                    <b>GGSIPU Sector 16-C Campus</b>
+                    <span>Interactive 60+ Acre Smart Map</span>
+                  </div>
+                  <button class="open-map-pill" data-target="tab-map">Explore Map 🔍</button>
+                </div>
+              </div>
+            </div>
+            <div class="map-quick-pins">
+              <span style="font-size:12px; font-weight:600; color:var(--mute); align-self:center;">Quick Locate:</span>
+              <button class="map-quick-pin" data-building="block-e">🏛️ Block E (USICT)</button>
+              <button class="map-quick-pin" data-building="library">📚 Central Library</button>
+              <button class="map-quick-pin" data-building="canteen">☕ Canteen</button>
+              <button class="map-quick-pin" data-building="boys-hostel">🛏️ Hostels</button>
+              <button class="map-quick-pin" data-building="sports-complex">🏊 Sports Complex</button>
+            </div>
+          </section>
+
+          <!-- QUICK LINKS & RESOURCES -->
+          <section class="card">
+            <div class="card-header">
+              <h3>🔗 Quick Academic Links</h3>
+              <a class="card-action-link" data-target="tab-downloads">All Resources →</a>
+            </div>
+            <div class="quick-links-grid">
+              <button class="quick-link-btn" data-target="tab-syllabus">
+                <span class="icon">🎓</span>
+                <span>B.Tech AI Syllabus</span>
+              </button>
+              <button class="quick-link-btn" data-target="tab-exams">
+                <span class="icon">📄</span>
+                <span>Results & CGPA</span>
+              </button>
+              <button class="quick-link-btn" onclick="openModal('examFormModal')">
+                <span class="icon">📝</span>
+                <span>Exam Form 2026</span>
+              </button>
+              <button class="quick-link-btn" data-target="tab-exams">
+                <span class="icon">🎟️</span>
+                <span>Hall Ticket / Admit</span>
+              </button>
+              <button class="quick-link-btn" data-target="tab-support">
+                <span class="icon">🎧</span>
+                <span>Student Support</span>
+              </button>
+              <button class="quick-link-btn" data-target="tab-downloads">
+                <span class="icon">⬇</span>
+                <span>Question Papers</span>
+              </button>
+            </div>
+          </section>
+
+        </div>
+
+      </section>
+
+      <!-- ======================================================
+           TAB 2: FULL CAMPUS MAP SUITE (INTERACTIVE PROTOTYPE)
+           ====================================================== -->
+      <section class="tab-view" id="tab-map">
+
+        <div class="map-suite-container">
+
+          <!-- MAP VIEWPORT CANVAS CARD -->
+          <div class="map-viewport-card">
+
+            <!-- FLOATING TOOLBAR -->
+            <div class="map-toolbar">
+              <!-- Search Bar -->
+              <div class="map-search-bar">
+                <span>🔍</span>
+                <input type="text" id="mapSearchInput" placeholder="Search building, school, lab, canteen...">
+              </div>
+
+              <!-- Category Filter Pills -->
+              <div class="map-category-filters">
+                <button class="map-filter-btn active" data-cat="all">All Locations</button>
+                <button class="map-filter-btn" data-cat="academic">Academic Schools</button>
+                <button class="map-filter-btn" data-cat="hostels">Hostels & Food</button>
+                <button class="map-filter-btn" data-cat="sports">Sports & Health</button>
+                <button class="map-filter-btn" data-cat="admin">Admin & Services</button>
+              </div>
+            </div>
+
+            <!-- ZOOM & PAN CONTROLS -->
+            <div class="map-floating-controls">
+              <button class="map-ctrl-btn" id="mapZoomInBtn" title="Zoom In">+</button>
+              <button class="map-ctrl-btn" id="mapZoomOutBtn" title="Zoom Out">−</button>
+              <button class="map-ctrl-btn" id="mapFocusUSICTBtn" title="Center on USICT (Block E)">🏛️</button>
+              <button class="map-ctrl-btn" id="mapResetBtn" title="Reset View">⟲</button>
+            </div>
+
+            <!-- INTERACTIVE PAN-ZOOM CANVAS -->
+            <div class="map-canvas-area" id="mapCanvasArea">
+              <div class="map-stage" id="mapStage">
+                <div class="map-image-wrapper" id="mapImageWrapper">
+                  <img src="assets/campus-map.jpg" class="campus-base-img" alt="Official GGSIPU Dwarka Campus Plan">
+                  <!-- Interactive clickable pin markers overlaid here -->
+                  <div id="mapPinsContainer"></div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- MAP SIDEBAR PANEL: BUILDING DIRECTORY & DETAIL -->
+          <div class="map-sidebar-panel">
+            <div class="building-detail-card" id="buildingDetailCard">
+              <!-- Content populated dynamically on pin selection -->
+            </div>
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- ======================================================
+           TAB 3: SYLLABUS & ACADEMICS
+           ====================================================== -->
+      <section class="tab-view" id="tab-syllabus">
+        <div class="academics-header-card">
+          <div>
+            <h2>B.Tech Computer Science & Engineering (AI)</h2>
+            <p>University School of Information & Communication Technology • GGSIPU NEP Scheme</p>
+          </div>
+          <button class="primary-btn" onclick="showToast('Downloading complete 4-Year B.Tech CSE (AI) Scheme PDF...')">
+            📥 Download Complete Scheme (PDF)
+          </button>
+        </div>
+
+        <div class="semester-selector-strip">
+          <button class="sem-btn" data-sem="1">Semester 1</button>
+          <button class="sem-btn" data-sem="2">Semester 2</button>
+          <button class="sem-btn active" data-sem="3">Semester 3 (Current)</button>
+          <button class="sem-btn" data-sem="4">Semester 4</button>
+          <button class="sem-btn" data-sem="5">Semester 5</button>
+          <button class="sem-btn" data-sem="6">Semester 6</button>
+          <button class="sem-btn" data-sem="7">Semester 7</button>
+          <button class="sem-btn" data-sem="8">Semester 8</button>
+        </div>
+
+        <div class="course-grid" id="syllabusCoursesGrid">
+          <!-- Populated via JS -->
+        </div>
+      </section>
+
+      <!-- ======================================================
+           TAB 4: NOTICES & CIRCULARS
+           ====================================================== -->
+      <section class="tab-view" id="tab-notices">
+        <div class="card">
+          <div class="card-header">
+            <h3>🔔 Official University Notices & Circulars</h3>
+            <span style="font-size:12px; color:var(--mute);">Showing all recent notifications</span>
+          </div>
+
+          <div class="notices-list" style="margin-top: 10px;">
+            <div class="notice-item" onclick="openNoticeModal('notif-01')">
+              <span class="tag Important">Important</span>
+              <div>
+                <b class="notice-title">End Semester Examination Form 2026 - Online Submission Portal Active</b>
+                <div style="font-size:12px; color:var(--mute); margin-top:2px;">Circular: GGSIPU/COE/EXAM-FORM/2026/894 • Mandatory for B.Tech AI students</div>
+              </div>
+              <span class="notice-date">Oct 25, 2026</span>
+            </div>
+
+            <div class="notice-item" onclick="openNoticeModal('notif-02')">
+              <span class="tag Fee">Fee Alert</span>
+              <div>
+                <b class="notice-title">Odd Semester Annual Fee Payment - Final Deadline Nov 10, 2026</b>
+                <div style="font-size:12px; color:var(--mute); margin-top:2px;">Circular: GGSIPU/ACCOUNTS/FEES/2026/102 • Late penalty of ₹100/day post Nov 10</div>
+              </div>
+              <span class="notice-date">Oct 22, 2026</span>
+            </div>
+
+            <div class="notice-item" onclick="openNoticeModal('notif-03')">
+              <span class="tag Academic">Academic</span>
+              <div>
+                <b class="notice-title">Academic Calendar for Odd Semester 2026-27 (Revised Theory Exam Dates)</b>
+                <div style="font-size:12px; color:var(--mute); margin-top:2px;">Circular: GGSIPU/ACAD/CALENDAR/2026/411 • End Term Exams run 10 Dec – 24 Dec 2026</div>
+              </div>
+              <span class="notice-date">Oct 22, 2026</span>
+            </div>
+
+            <div class="notice-item" onclick="openNoticeModal('notif-04')">
+              <span class="tag Info">Curriculum</span>
+              <div>
+                <b class="notice-title">Updated B.Tech CSE (Artificial Intelligence) Syllabus Scheme</b>
+                <div style="font-size:12px; color:var(--mute); margin-top:2px;">Circular: USICT/DEAN/BTECH-AI/2026/77 • AI & Robotics Lab cloud cluster integration</div>
+              </div>
+              <span class="notice-date">Oct 15, 2026</span>
+            </div>
+
+            <div class="notice-item" onclick="openNoticeModal('notif-05')">
+              <span class="tag General">Sports</span>
+              <div>
+                <b class="notice-title">Annual Sports Meet 'Sportech 2026' - Inter-School Registrations Open</b>
+                <div style="font-size:12px; color:var(--mute); margin-top:2px;">Circular: GGSIPU/DSW/SPORTS/2026/331 • Main Football Stadium & Sports Complex</div>
+              </div>
+              <span class="notice-date">Oct 18, 2026</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================
+           TAB 5: ACADEMIC CALENDAR
+           ====================================================== -->
+      <section class="tab-view" id="tab-calendar">
+        <div class="card">
+          <div class="card-header">
+            <h3>📅 Academic Schedule – Odd Semester 2026-27</h3>
+            <button class="primary-btn" style="padding:6px 14px; font-size:12px;" onclick="showToast('Academic Calendar .ics downloaded! Added to calendar.')">
+              📅 Sync with Google / Outlook Calendar
+            </button>
+          </div>
+
+          <div class="table-card" style="border:0; padding:0; margin-top:10px;">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Event / Milestone</th>
+                  <th>Scheduled Date</th>
+                  <th>Status</th>
+                  <th>Authority / Venue</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>Commencement of Odd Semester Classes</b></td>
+                  <td>August 01, 2026</td>
+                  <td><span class="tag Info">Completed</span></td>
+                  <td>USICT Block E Classrooms</td>
+                </tr>
+                <tr>
+                  <td><b>Mid Semester / Minor Examinations</b></td>
+                  <td>Oct 27 – Nov 02, 2026</td>
+                  <td><span class="tag Info">Completed</span></td>
+                  <td>USICT Examination Wing</td>
+                </tr>
+                <tr style="background:var(--warn-bg);">
+                  <td><b style="color:var(--bad);">Last Date for Tuition Fee Payment</b></td>
+                  <td><b>November 10, 2026</b></td>
+                  <td><span class="tag Important">Urgent (Tomorrow)</span></td>
+                  <td>Accounts Branch / Indian Bank</td>
+                </tr>
+                <tr>
+                  <td><b>Course Registration End Date</b></td>
+                  <td>November 15, 2026</td>
+                  <td><span class="tag Fee">Upcoming</span></td>
+                  <td>USICT Academic Section</td>
+                </tr>
+                <tr>
+                  <td><b>End Semester Exam Form Submission (Normal)</b></td>
+                  <td>November 20, 2026</td>
+                  <td><span class="tag Academic">Active Portal</span></td>
+                  <td>Online Examination Portal</td>
+                </tr>
+                <tr>
+                  <td><b>Hall Ticket / Admit Card Release</b></td>
+                  <td>December 01, 2026</td>
+                  <td><span class="tag Academic">Scheduled</span></td>
+                  <td>Student Dashboard</td>
+                </tr>
+                <tr>
+                  <td><b>End Semester Theory Examinations</b></td>
+                  <td>Dec 10 – Dec 24, 2026</td>
+                  <td><span class="tag Important">Major Event</span></td>
+                  <td>Block E Examination Halls</td>
+                </tr>
+                <tr>
+                  <td><b>Practical & Viva-Voce Examinations</b></td>
+                  <td>Dec 26 – Dec 31, 2026</td>
+                  <td><span class="tag Academic">Scheduled</span></td>
+                  <td>USICT Computer & AI Labs</td>
+                </tr>
+                <tr>
+                  <td><b>Winter Vacation</b></td>
+                  <td>Jan 01 – Jan 15, 2027</td>
+                  <td><span class="tag Info">University Holiday</span></td>
+                  <td>All University Schools</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================
+           TAB 6: ATTENDANCE & BIOMETRIC PORTAL (80% REGULATIONS)
+           ====================================================== -->
+      <section class="tab-view" id="tab-attendance">
+
+        <!-- ATTENDANCE SUMMARY BANNER -->
+        <div class="attendance-summary-banner">
+          <div class="attendance-big-pct">
+            <div>
+              <b>84.5%</b>
+              <span>Overall</span>
+            </div>
+          </div>
+          <div>
+            <h2 style="font-size:22px;">Biometric Attendance Tracking Portal</h2>
+            <p style="font-size:13px; color:#dcd6ff; margin-top:4px;">
+              Compliant with <b>GGSIPU Attendance Regulations 2026</b> (Effective July 1, 2026).
+            </p>
+            <div style="display:flex; gap:10px; margin-top:8px; font-size:12px;">
+              <span>Total Classes: <b>226</b></span>
+              <span>Attended: <b>191</b></span>
+              <span>Missed: <b>35</b></span>
+              <span style="color:#2ed573;">Status: <b>ELIGIBLE (SAFE)</b></span>
+            </div>
+          </div>
+          <div class="attendance-rule-callout">
+            <b>📜 2026 Attendance Criteria:</b><br>
+            • <b>≥80%:</b> Minimum required for exam eligibility.<br>
+            • <b>70%–80%:</b> Condonable on medical grounds (₹750 fee/course).<br>
+            • <b>&lt;70%:</b> Strict detention without exception.
+          </div>
+        </div>
+
+        <!-- CONDONATION & SAFETY CALCULATOR -->
+        <div class="card">
+          <div class="card-header">
+            <h3>🧮 Interactive Attendance & Condonation Calculator</h3>
+            <span style="font-size:12px; color:var(--mute);">Predict your exam eligibility before missing upcoming lectures</span>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:12px;">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <label for="calcMissedSlider" style="font-weight:600; font-size:13px;">
+                Simulate Missing Additional Lectures: <span id="calcMissedVal" style="color:var(--ac); font-weight:700;">0</span> classes
+              </label>
+              <span style="font-size:12px; color:var(--mute);">Remaining classes in semester: ~40</span>
+            </div>
+            <input type="range" id="calcMissedSlider" min="0" max="30" value="0" style="width:100%; cursor:pointer;">
+            <div id="calcResultBox" style="background:var(--soft); padding:12px; border-radius:8px; font-size:13px; line-height:1.5;">
+              <span style="color:#17703f; font-weight:700;">✅ SAFE: Your attendance will be 84.5%. You satisfy the 80% mandatory criteria.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- SUBJECT-WISE BREAKDOWN TABLE -->
+        <div class="table-card">
+          <div class="card-header" style="margin-bottom:10px;">
+            <h3>📊 Course-by-Course Attendance Status</h3>
+            <button class="secondary-btn" style="padding:6px 12px; font-size:12px;" onclick="openModal('biometricModal')">
+              📱 View Biometric Terminal Punches
+            </button>
+          </div>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Code</th>
+                <th>Course Title</th>
+                <th>Type</th>
+                <th>Attended / Total</th>
+                <th>Percentage</th>
+                <th>Regulation Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="attendanceTableBody">
+              <!-- Rendered via JS -->
+            </tbody>
+          </table>
+        </div>
+
+      </section>
+
+      <!-- ======================================================
+           TAB 7: EXAMINATION & HALL TICKET
+           ====================================================== -->
+      <section class="tab-view" id="tab-exams">
+
+        <!-- STATUS CARD -->
+        <div class="exam-status-card">
+          <div>
+            <span style="background:rgba(255,255,255,0.2); padding:4px 10px; border-radius:99px; font-size:11px; font-weight:700; text-transform:uppercase;">
+              Registration Confirmed ✓
+            </span>
+            <h2 style="font-size:22px; margin-top:8px;">End Semester Examinations (Dec 2026)</h2>
+            <p style="font-size:13px; opacity:0.9; margin-top:4px;">
+              Examination Form No: <b>GGSIPU/EF/2026/02416403223</b> • Clearance Status: <b>All Cleared</b>
+            </p>
+          </div>
+          <button class="primary-btn" style="background:#fff; color:#1b1450; font-weight:700;" onclick="showToast('Downloading verified Hall Ticket PDF with official barcode...')">
+            📥 Download Admit Card (PDF)
+          </button>
+        </div>
+
+        <!-- HALL TICKET PREVIEW -->
+        <div class="hall-ticket-preview">
+          <div class="hall-ticket-header">
+            <div>
+              <h3 style="font-size:17px; margin:0;">GURU GOBIND SINGH INDRAPRASTHA UNIVERSITY</h3>
+              <span style="font-size:12px; color:var(--mute);">End Semester Examination Hall Ticket / Admit Card – Dec 2026</span>
+            </div>
+            <div style="font-family:monospace; font-size:18px; letter-spacing:2px; font-weight:700;">
+              ||||| | |||| ||| |||||||
+            </div>
+          </div>
+
+          <div class="hall-ticket-grid">
+            <div>
+              <div>Candidate Name: <b>STUDENT</b></div>
+              <div>Enrollment Number: <b>02416403223</b></div>
+              <div>Roll Number: <b>2423010</b></div>
+              <div>School: <b>USICT (University School of ICT)</b></div>
+            </div>
+            <div>
+              <div>Programme: <b>B.Tech CSE (Artificial Intelligence)</b></div>
+              <div>Semester: <b>Third (3rd) Semester</b></div>
+              <div>Exam Centre: <b>Block E (USICT), Ground & 3rd Floor</b></div>
+              <div>Attendance Clearance: <b style="color:#17703f;">84.5% (Verified)</b></div>
+            </div>
+            <div style="width:90px; height:110px; border:1px solid #1b1450; display:grid; place-items:center; background:#f4f3fa; text-align:center; font-size:11px;">
+              👤<br>Candidate<br>Photograph
+            </div>
+          </div>
+
+          <table class="data-table" style="font-size:12px;">
+            <thead>
+              <tr>
+                <th>Paper Code</th>
+                <th>Subject Name</th>
+                <th>Date of Exam</th>
+                <th>Session & Time</th>
+                <th>Invigilator Signature</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>IT-201</td>
+                <td>Data Structures & Algorithms</td>
+                <td>10-12-2026</td>
+                <td>Morning (10:00 AM – 01:00 PM)</td>
+                <td>______________</td>
+              </tr>
+              <tr>
+                <td>BS-203</td>
+                <td>Discrete Mathematical Structures</td>
+                <td>14-12-2026</td>
+                <td>Morning (10:00 AM – 01:00 PM)</td>
+                <td>______________</td>
+              </tr>
+              <tr>
+                <td>EC-205</td>
+                <td>Digital Logic & Computer Design</td>
+                <td>17-12-2026</td>
+                <td>Morning (10:00 AM – 01:00 PM)</td>
+                <td>______________</td>
+              </tr>
+              <tr>
+                <td>IT-207</td>
+                <td>Object Oriented Programming using Java</td>
+                <td>21-12-2026</td>
+                <td>Morning (10:00 AM – 01:00 PM)</td>
+                <td>______________</td>
+              </tr>
+              <tr>
+                <td>AI-209</td>
+                <td>Foundations of Artificial Intelligence & ML</td>
+                <td>24-12-2026</td>
+                <td>Morning (10:00 AM – 01:00 PM)</td>
+                <td>______________</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- PAST SEMESTER PERFORMANCE -->
+        <div class="card" style="margin-top:16px;">
+          <div class="card-header">
+            <h3>📈 Academic Performance & CGPA Tracker</h3>
+            <span style="font-size:12px; font-weight:700; color:var(--ac);">Cumulative CGPA: 8.92</span>
+          </div>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Semester</th>
+                <th>Credits Registered</th>
+                <th>Credits Earned</th>
+                <th>SGPA</th>
+                <th>CGPA</th>
+                <th>Result Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Semester 1 (Dec 2025)</td>
+                <td>24</td>
+                <td>24</td>
+                <td><b>8.85</b></td>
+                <td>8.85</td>
+                <td><span class="tag Info">Passed (Distinction)</span></td>
+              </tr>
+              <tr>
+                <td>Semester 2 (May 2026)</td>
+                <td>24</td>
+                <td>24</td>
+                <td><b>9.00</b></td>
+                <td>8.92</td>
+                <td><span class="tag Info">Passed (Distinction)</span></td>
+              </tr>
+              <tr>
+                <td>Semester 3 (Dec 2026)</td>
+                <td>24</td>
+                <td>Pending</td>
+                <td>--</td>
+                <td>--</td>
+                <td><span class="tag Fee">In Progress</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </section>
+
+      <!-- ======================================================
+           TAB 8: STUDENT SUPPORT & HELPDESK
+           ====================================================== -->
+      <section class="tab-view" id="tab-support">
+        <div class="card">
+          <div class="card-header">
+            <h3>🎧 USICT Student Grievance & Helpdesk</h3>
+            <span style="font-size:12px; color:var(--mute);">Average resolution time: 24-48 hours</span>
+          </div>
+
+          <form id="supportTicketForm" style="display:flex; flex-direction:column; gap:14px; margin-top:10px;">
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+              <div>
+                <label style="font-size:12px; font-weight:700; display:block; margin-bottom:4px;">Grievance Category</label>
+                <select id="ticketCategory" style="width:100%; padding:10px; border-radius:8px; border:1px solid var(--line); background:var(--card); color:var(--ink); font:inherit;">
+                  <option value="Attendance">Attendance / Biometric Record Discrepancy</option>
+                  <option value="Fee">Tuition Fee Receipt / Challan Clearance</option>
+                  <option value="Examination">End Sem Exam Form / Admit Card Issue</option>
+                  <option value="Hostel">Hostel Accommodation / Mess Complaint</option>
+                  <option value="Library">Library Fine Waiver / Book Bank</option>
+                  <option value="IT">Campus Wi-Fi / Student Portal Login</option>
+                </select>
+              </div>
+              <div>
+                <label style="font-size:12px; font-weight:700; display:block; margin-bottom:4px;">Subject</label>
+                <input type="text" id="ticketSubject" placeholder="Brief summary of grievance..." required style="width:100%; padding:10px; border-radius:8px; border:1px solid var(--line); background:var(--card); color:var(--ink); font:inherit;">
+              </div>
+            </div>
+
+            <div>
+              <label style="font-size:12px; font-weight:700; display:block; margin-bottom:4px;">Detailed Description</label>
+              <textarea id="ticketDesc" rows="4" placeholder="Provide details, dates, course codes, or reference numbers..." required style="width:100%; padding:10px; border-radius:8px; border:1px solid var(--line); background:var(--card); color:var(--ink); font:inherit;"></textarea>
+            </div>
+
+            <button type="submit" class="primary-btn" style="align-self:flex-start; padding:10px 24px;">
+              Submit Support Ticket 🚀
+            </button>
+          </form>
+        </div>
+
+        <!-- EMERGENCY & KEY DIRECTORY -->
+        <div class="card" style="margin-top:16px;">
+          <div class="card-header">
+            <h3>☎️ Important Campus Directory & Emergency Helplines</h3>
+          </div>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:12px;">
+            <div style="background:var(--soft); padding:12px; border-radius:8px;">
+              <b>🏛️ Dean, USICT</b>
+              <div style="font-size:12px; color:var(--mute); margin-top:4px;">Office: Block E, Room 101 • Ext: 011-25302401</div>
+              <div style="font-size:12px; color:var(--ac); margin-top:2px;">dean.usict@ipu.ac.in</div>
+            </div>
+            <div style="background:var(--soft); padding:12px; border-radius:8px;">
+              <b>🏥 University Health Centre (24x7)</b>
+              <div style="font-size:12px; color:var(--mute); margin-top:4px;">Location: Near Indian Bank • Ambulance: 011-25302888</div>
+              <div style="font-size:12px; color:var(--ac); margin-top:2px;">healthcentre@ipu.ac.in</div>
+            </div>
+            <div style="background:var(--soft); padding:12px; border-radius:8px;">
+              <b>🛡️ Proctorial Board & Anti-Ragging Cell</b>
+              <div style="font-size:12px; color:var(--mute); margin-top:4px;">Toll-free 24x7 Helpline: 1800-180-5522</div>
+              <div style="font-size:12px; color:var(--ac); margin-top:2px;">proctor@ipu.ac.in</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================
+           TAB 9: DOWNLOADS CENTER
+           ====================================================== -->
+      <section class="tab-view" id="tab-downloads">
+        <div class="card">
+          <div class="card-header">
+            <h3>⬇ Student Downloads & Academic Resources</h3>
+          </div>
+          <div class="notices-list">
+            <div class="notice-item" onclick="showToast('Downloading B.Tech CSE (AI) Complete Scheme & Syllabus...')">
+              <span class="tag Academic">Scheme</span>
+              <span class="notice-title">Complete 4-Year B.Tech CSE (Artificial Intelligence) Scheme & Syllabus (PDF)</span>
+              <button class="primary-btn" style="padding:4px 10px; font-size:11px;">Download</button>
+            </div>
+            <div class="notice-item" onclick="showToast('Downloading GGSIPU Attendance Regulations 2026 Official Gazette...')">
+              <span class="tag Important">Regulation</span>
+              <span class="notice-title">GGSIPU Attendance Regulations 2026 (80% Mandatory Rule & Condonation Guidelines)</span>
+              <button class="primary-btn" style="padding:4px 10px; font-size:11px;">Download</button>
+            </div>
+            <div class="notice-item" onclick="showToast('Downloading End Sem 2025 Previous Year Question Papers Pack...')">
+              <span class="tag Info">Question Papers</span>
+              <span class="notice-title">Previous Year Question Papers Pack (Dec 2024 & Dec 2025 End Sem Exams)</span>
+              <button class="primary-btn" style="padding:4px 10px; font-size:11px;">Download</button>
+            </div>
+            <div class="notice-item" onclick="showToast('Downloading Medical Leave Condonation Application Form...')">
+              <span class="tag Fee">Form</span>
+              <span class="notice-title">Medical Leave Shortage Condonation Application Proforma (Form A-1)</span>
+              <button class="primary-btn" style="padding:4px 10px; font-size:11px;">Download</button>
+            </div>
+            <div class="notice-item" onclick="showToast('Downloading Library No-Dues Clearance Proforma...')">
+              <span class="tag General">Form</span>
+              <span class="notice-title">Central Library No-Dues & Book Bank Return Certificate</span>
+              <button class="primary-btn" style="padding:4px 10px; font-size:11px;">Download</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ==========================================================
+       MODALS
+       ========================================================== -->
+
+  <!-- NOTICE DETAIL MODAL -->
+  <div class="modal-backdrop" id="noticeModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span class="tag Important" id="noticeModalTag">Important</span>
+          <h3 id="noticeModalTitle" style="font-size:16px;">Notice Details</h3>
+        </div>
+        <button class="modal-close-btn" aria-label="Close modal">✕</button>
+      </div>
+      <div class="modal-body">
+        <div id="noticeModalMeta" style="font-size:12px; color:var(--mute); margin-bottom:14px; padding-bottom:8px; border-bottom:1px solid var(--line);"></div>
+        <div id="noticeModalContent"></div>
+      </div>
+      <div class="modal-footer">
+        <button class="secondary-btn" onclick="closeAllModals()">Close</button>
+        <button class="primary-btn" onclick="showToast('Official Circular PDF downloaded with digital signature.')">
+          📥 Download Circular PDF
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- BIOMETRIC PUNCH LOGS MODAL -->
+  <div class="modal-backdrop" id="biometricModal">
+    <div class="modal-content" style="width:min(700px, 100%);">
+      <div class="modal-header">
+        <h3>📱 Biometric Attendance Terminal Punches</h3>
+        <button class="modal-close-btn" aria-label="Close modal">✕</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size:12px; color:var(--mute); margin-bottom:12px;">
+          Live biometric logs captured at USICT Block E biometric terminal gates. Fingerprint & Facial Recognition ID: <b>BIO-2423010</b>.
+        </p>
+        <table class="data-table" style="font-size:12px;">
+          <thead>
+            <tr>
+              <th>Date & Time</th>
+              <th>Course</th>
+              <th>Terminal ID & Location</th>
+              <th>Punch Type</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>09-Nov-2026, 09:05 AM</td>
+              <td>IT-201 (DSA)</td>
+              <td>BIO-E-G2 (Block E Gate 2)</td>
+              <td>Fingerprint Scan</td>
+              <td><span class="tag Info">Verified ✓</span></td>
+            </tr>
+            <tr>
+              <td>09-Nov-2026, 11:10 AM</td>
+              <td>AI-209 (AI & ML)</td>
+              <td>BIO-E-304 (AI Lab 304)</td>
+              <td>Facial Recognition</td>
+              <td><span class="tag Info">Verified ✓</span></td>
+            </tr>
+            <tr>
+              <td>08-Nov-2026, 10:02 AM</td>
+              <td>BS-203 (Discrete)</td>
+              <td>BIO-E-G1 (Block E Gate 1)</td>
+              <td>Fingerprint Scan</td>
+              <td><span class="tag Info">Verified ✓</span></td>
+            </tr>
+            <tr>
+              <td>08-Nov-2026, 02:04 PM</td>
+              <td>AI-257 (AI Tools Lab)</td>
+              <td>BIO-E-312 (Lab 312)</td>
+              <td>Facial Recognition</td>
+              <td><span class="tag Info">Verified ✓</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button class="primary-btn" onclick="closeAllModals()">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STUDENT PROFILE MODAL -->
+  <div class="modal-backdrop" id="profileModal">
+    <div class="modal-content" style="width:min(500px, 100%);">
+      <div class="modal-header">
+        <h3>👤 Student Information</h3>
+        <button class="modal-close-btn" aria-label="Close modal">✕</button>
+      </div>
+      <div class="modal-body" style="text-align:center;">
+        <div class="student-avatar" style="width:80px; height:80px; font-size:40px; margin-bottom:12px;">👤</div>
+        <h2 style="font-size:20px; color:var(--ink);">Student</h2>
+        <span style="color:var(--ac); font-weight:700;">B.Tech Computer Science & Engineering (AI)</span>
+        <div style="background:var(--soft); border-radius:8px; padding:12px; margin-top:14px; text-align:left; font-size:13px; display:flex; flex-direction:column; gap:6px;">
+          <div><b>Enrollment Number:</b> 02416403223</div>
+          <div><b>Roll Number:</b> 2423010</div>
+          <div><b>Current Semester:</b> 3rd Semester (2nd Year)</div>
+          <div><b>Academic Batch:</b> 2024 – 2028</div>
+          <div><b>School:</b> USICT (Block E, Dwarka Campus)</div>
+          <div><b>Cumulative CGPA:</b> 8.92 (Class Rank #4)</div>
+          <div><b>Biometric Attendance:</b> 84.5% (Eligible for Exams)</div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="primary-btn" onclick="closeAllModals()">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXAM FORM MODAL -->
+  <div class="modal-backdrop" id="examFormModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>📝 End Semester Examination Form 2026</h3>
+        <button class="modal-close-btn" aria-label="Close modal">✕</button>
+      </div>
+      <div class="modal-body">
+        <div style="background:var(--ok-bg); color:var(--ok); padding:12px; border-radius:8px; margin-bottom:14px; font-size:13px;">
+          ✅ <b>Form Status:</b> Submitted & Verified by USICT Academic Branch on Oct 28, 2026.
+        </div>
+        <div style="font-size:13px; line-height:1.6;">
+          <div><b>Student Name:</b> Student (Roll: 2423010)</div>
+          <div><b>Programme:</b> B.Tech CSE (AI) - Semester 3</div>
+          <div><b>Form Application No:</b> GGSIPU/EF-2026/8841</div>
+          <div><b>Fee Clearance:</b> Verified via Indian Bank receipt #IB-89214</div>
+          <div><b>Attendance Clearance:</b> 84.5% (Above 80% threshold - Approved)</div>
+          <div style="margin-top:10px;"><b>Registered Theory & Lab Subjects:</b></div>
+          <ul style="padding-left:18px; margin-top:4px;">
+            <li>IT-201: Data Structures & Algorithms</li>
+            <li>BS-203: Discrete Mathematical Structures</li>
+            <li>EC-205: Digital Logic & Computer Design</li>
+            <li>IT-207: Object Oriented Programming using Java</li>
+            <li>AI-209: Foundations of Artificial Intelligence & ML</li>
+            <li>IT-251: Data Structures Lab</li>
+            <li>AI-257: AI Tools Lab</li>
+          </ul>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="secondary-btn" onclick="closeAllModals()">Close</button>
+        <button class="primary-btn" onclick="showToast('Downloading submitted Examination Form copy...')">
+          📥 Download Submitted Form (PDF)
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- ==========================================================
+       APP FOOTER
+       ========================================================== -->
+  <footer class="app-footer">
+    <p>
+      <b>Guru Gobind Singh Indraprastha University (GGSIPU)</b> • Sector 16-C, Dwarka, New Delhi - 110078
+    </p>
+    <p style="margin-top:4px;">
+      University School of Information & Communication Technology (USICT) • Student Portal Prototype 2026-27
+    </p>
+  </footer>
+
+  <!-- MAIN SCRIPT -->
+  <script src="js/app.js"></script>
+</body>
+</html>
+
